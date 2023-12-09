@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6. Expressions &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. Expressions &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -200,7 +200,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python 語言參考手冊</a> &#187;</li>
@@ -553,7 +553,7 @@ to the caller of the current generator's methods. Any values passed in with
 appropriate methods.  If this is not the case, then <a class="reference internal" href="#generator.send" title="generator.send"><code class="xref py py-meth docutils literal notranslate"><span class="pre">send()</span></code></a>
 will raise <a class="reference internal" href="../library/exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> or <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a>, while
 <a class="reference internal" href="#generator.throw" title="generator.throw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">throw()</span></code></a> will just raise the passed in exception immediately.</p>
-<p>When the underlying iterator is complete, the <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code>
+<p>When the underlying iterator is complete, the <a class="reference internal" href="../library/exceptions.html#StopIteration.value" title="StopIteration.value"><code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code></a>
 attribute of the raised <a class="reference internal" href="../library/exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> instance becomes the value of
 the yield expression. It can be either set explicitly when raising
 <a class="reference internal" href="../library/exceptions.html#StopIteration" title="StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a>, or automatically when the subiterator is a generator
@@ -830,11 +830,16 @@ syntax is:</p>
 </pre>
 <p id="index-40">The primary must evaluate to an object of a type that supports attribute
 references, which most objects do.  This object is then asked to produce the
-attribute whose name is the identifier.  This production can be customized by
-overriding the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code> method.  If this attribute is not available,
-the exception <a class="reference internal" href="../library/exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> is raised.  Otherwise, the type and value of
-the object produced is determined by the object.  Multiple evaluations of the
-same attribute reference may yield different objects.</p>
+attribute whose name is the identifier. The type and value produced is
+determined by the object.  Multiple evaluations of the same attribute
+reference may yield different objects.</p>
+<p>This production can be customized by overriding the
+<a class="reference internal" href="datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattribute__()</span></code></a> method or the <a class="reference internal" href="datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code></a>
+method.  The <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattribute__()</span></code> method is called first and either
+returns a value or raises <a class="reference internal" href="../library/exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> if the attribute is not
+available.</p>
+<p>If an <a class="reference internal" href="../library/exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> is raised and the object has a <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattr__()</span></code>
+method, that method is called as a fallback.</p>
 </section>
 <section id="subscriptions">
 <span id="id6"></span><h3><span class="section-number">6.3.2. </span>Subscriptions<a class="headerlink" href="#subscriptions" title="Link to this heading">¶</a></h3>
@@ -875,7 +880,7 @@ to the index so that, for example, <code class="docutils literal notranslate"><s
 resulting value must be a nonnegative integer less than the number of items in
 the sequence, and the subscription selects the item whose index is that value
 (counting from zero). Since the support for negative indices and slicing
-occurs in the object's <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> method, subclasses overriding
+occurs in the object's <a class="reference internal" href="datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> method, subclasses overriding
 this method will need to explicitly add that support.</p>
 <p id="index-43">A <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">string</span></code></a> is a special kind of sequence whose items are
 <em>characters</em>. A character is not a separate data type but a
@@ -902,14 +907,14 @@ disambiguated by defining that in this case the interpretation as a subscription
 takes priority over the interpretation as a slicing (this is the case if the
 slice list contains no proper slice).</p>
 <p id="index-46">The semantics for a slicing are as follows.  The primary is indexed (using the
-same <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> method as
+same <a class="reference internal" href="datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> method as
 normal subscription) with a key that is constructed from the slice list, as
 follows.  If the slice list contains at least one comma, the key is a tuple
 containing the conversion of the slice items; otherwise, the conversion of the
 lone slice item is the key.  The conversion of a slice item that is an
 expression is that expression.  The conversion of a proper slice is a slice
-object (see section <a class="reference internal" href="datamodel.html#types"><span class="std std-ref">標準型別階層</span></a>) whose <code class="xref py py-attr docutils literal notranslate"><span class="pre">start</span></code>,
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">stop</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">step</span></code> attributes are the values of the
+object (see section <a class="reference internal" href="datamodel.html#types"><span class="std std-ref">標準型別階層</span></a>) whose <a class="reference internal" href="../library/functions.html#slice.start" title="slice.start"><code class="xref py py-attr docutils literal notranslate"><span class="pre">start</span></code></a>,
+<a class="reference internal" href="../library/functions.html#slice.stop" title="slice.stop"><code class="xref py py-attr docutils literal notranslate"><span class="pre">stop</span></code></a> and <a class="reference internal" href="../library/functions.html#slice.step" title="slice.step"><code class="xref py py-attr docutils literal notranslate"><span class="pre">step</span></code></a> attributes are the values of the
 expressions given as lower bound, upper bound and stride, respectively,
 substituting <code class="docutils literal notranslate"><span class="pre">None</span></code> for missing expressions.</p>
 </section>
@@ -1377,7 +1382,7 @@ expression <code class="docutils literal notranslate"><span class="pre">x</span>
 If an exception is raised during the iteration, it is as if <a class="reference internal" href="#in"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">in</span></code></a> raised
 that exception.</p>
 <p>Lastly, the old-style iteration protocol is tried: if a class defines
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">y</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> if and only if there is a non-negative
+<a class="reference internal" href="datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a>, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">y</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> if and only if there is a non-negative
 integer index <em>i</em> such that <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">y[i]</span> <span class="pre">or</span> <span class="pre">x</span> <span class="pre">==</span> <span class="pre">y[i]</span></code>, and no lower integer index
 raises the <a class="reference internal" href="../library/exceptions.html#IndexError" title="IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> exception.  (If any other exception is raised, it is as
 if <a class="reference internal" href="#in"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">in</span></code></a> raised that exception).</p>
@@ -1438,10 +1443,11 @@ returns a boolean value regardless of the type of its argument
     <span class="n">process</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Assignment expressions must be surrounded by parentheses when used
-as sub-expressions in slicing, conditional, lambda,
-keyword-argument, and comprehension-if expressions
-and in <code class="docutils literal notranslate"><span class="pre">assert</span></code> and <code class="docutils literal notranslate"><span class="pre">with</span></code> statements.
+<p>Assignment expressions must be surrounded by parentheses when
+used as expression statements and when used as sub-expressions in
+slicing, conditional, lambda,
+keyword-argument, and comprehension-if expressions and
+in <code class="docutils literal notranslate"><span class="pre">assert</span></code>, <code class="docutils literal notranslate"><span class="pre">with</span></code>, and <code class="docutils literal notranslate"><span class="pre">assignment</span></code> statements.
 In all other places where they can be used, parentheses are not required,
 including in <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> statements.</p>
 <div class="versionadded">
@@ -1793,7 +1799,7 @@ precedence applies.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 語言參考手冊</a> &#187;</li>
@@ -1836,7 +1842,7 @@ precedence applies.</p>
 <br />
     <br />
 
-    最後更新於 10月 14, 2023。
+    最後更新於 Dec 09, 2023 (07:40 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 

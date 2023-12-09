@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python 3.10 有什麼新功能 &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 3.10 有什麼新功能 &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -260,7 +260,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python 有什麼新功能？</a> &#187;</li>
@@ -569,8 +569,8 @@
 <section id="pep-626-precise-line-numbers-for-debugging-and-other-tools">
 <h3>PEP 626：用於除錯和其他工具的精確列號<a class="headerlink" href="#pep-626-precise-line-numbers-for-debugging-and-other-tools" title="Link to this heading">¶</a></h3>
 <p>PEP 626 為除錯、分析 (profiling) 和覆蓋 (coverage) 工具帶來了更精確、更可靠的列號 (line numbers)。為所有已執行的程式碼列且僅針對已執行的程式碼行產生具有正確列號的追蹤事件。</p>
-<p>影格 (frame) 物件的 <code class="docutils literal notranslate"><span class="pre">f_lineno</span></code> 屬性總會包含預期的列號。</p>
-<p>程式碼物件的 <code class="docutils literal notranslate"><span class="pre">co_lnotab</span></code> 屬性已棄用，並將在 3.12 中刪除。需要從偏移量轉換為列號的程式碼應使用新的 <code class="docutils literal notranslate"><span class="pre">co_lines()</span></code> 方法。</p>
+<p>影格 (frame) 物件的 <a class="reference internal" href="../reference/datamodel.html#frame.f_lineno" title="frame.f_lineno"><code class="xref py py-attr docutils literal notranslate"><span class="pre">f_lineno</span></code></a> 屬性總會包含預期的列號。</p>
+<p>程式碼物件的 <a class="reference internal" href="../reference/datamodel.html#codeobject.co_lnotab" title="codeobject.co_lnotab"><code class="xref py py-attr docutils literal notranslate"><span class="pre">co_lnotab</span></code></a> 屬性已棄用，並將在 3.12 中刪除。需要從偏移量轉換為列號的程式碼應使用新的 <code class="docutils literal notranslate"><span class="pre">co_lines()</span></code> 方法。</p>
 </section>
 <section id="pep-634-structural-pattern-matching">
 <h3>PEP 634：結構模式匹配<a class="headerlink" href="#pep-634-structural-pattern-matching" title="Link to this heading">¶</a></h3>
@@ -847,7 +847,7 @@
 <li><p>新增兩個內建函式 -- <a class="reference internal" href="../library/functions.html#aiter" title="aiter"><code class="xref py py-func docutils literal notranslate"><span class="pre">aiter()</span></code></a> 和 <a class="reference internal" href="../library/functions.html#anext" title="anext"><code class="xref py py-func docutils literal notranslate"><span class="pre">anext()</span></code></a>，分別為 <a class="reference internal" href="../library/functions.html#iter" title="iter"><code class="xref py py-func docutils literal notranslate"><span class="pre">iter()</span></code></a> 和 <a class="reference internal" href="../library/functions.html#next" title="next"><code class="xref py py-func docutils literal notranslate"><span class="pre">next()</span></code></a> 提供非同步的對應函式。（由 Joshua Bronson、Daniel Pope 和 Justin Wang 在 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=31861">bpo-31861</a> 中貢獻。）</p></li>
 <li><p>靜態方法 (<a class="reference internal" href="../library/functions.html#staticmethod" title="staticmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code></a>) 和類別方法 (<a class="reference internal" href="../library/functions.html#classmethod" title="classmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">&#64;classmethod</span></code></a>) 現在繼承方法屬性 (<code class="docutils literal notranslate"><span class="pre">__module__</span></code>, <code class="docutils literal notranslate"><span class="pre">__name__</span></code>, <code class="docutils literal notranslate"><span class="pre">__qualname__</span></code>, <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>, <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code>) 並有一個新的 <code class="docutils literal notranslate"><span class="pre">__wrapped__</span></code> 屬性。此外，靜態方法現在可以像是常規函式般呼叫。（由 Victor Stinner 在 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=43682">bpo-43682</a> 中貢獻。）</p></li>
 <li><p>複雜目標（除 <span class="target" id="index-107"></span><a class="pep reference external" href="https://peps.python.org/pep-0526/"><strong>PEP 526</strong></a> 定義的 <code class="docutils literal notranslate"><span class="pre">simple</span> <span class="pre">name</span></code> 目標之外的所有內容）的註釋不再使用 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">comments</span></code> 造成任何執行環境 (runtime) 影響。（由 Batuhan Taskaya 在 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=42737">bpo-42737</a> 中貢獻。）</p></li>
-<li><p>類別和模組物件現在會根據需求來延遲建立 (lazy-create) 空的註釋字典 (annotations dicts)。註釋字典存儲在物件的 <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> 中以達成向後相容性。這改進了 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 使用方式的最佳實踐方法；有關更多資訊，請參閱 <a class="reference internal" href="../howto/annotations.html#annotations-howto"><span class="std std-ref">Annotations Best Practices</span></a>。（由 Larry Hastings 在 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=43901">bpo-43901</a> 中貢獻。）</p></li>
+<li><p>類別和模組物件現在會根據需求來延遲建立 (lazy-create) 空的註釋字典 (annotations dicts)。註釋字典存儲在物件的 <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> 中以達成向後相容性。這改進了 <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> 使用方式的最佳實踐方法；有關更多資訊，請參閱 <a class="reference internal" href="../howto/annotations.html#annotations-howto"><span class="std std-ref">註釋 (annotation) 最佳實踐</span></a>。（由 Larry Hastings 在 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=43901">bpo-43901</a> 中貢獻。）</p></li>
 <li><p>附名運算式或由 <code class="docutils literal notranslate"><span class="pre">yield</span></code>、<code class="docutils literal notranslate"><span class="pre">yield</span> <span class="pre">from</span></code>、<code class="docutils literal notranslate"><span class="pre">await</span></code> 組成的註釋現在在 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">comments</span></code> 下被禁止，因為它們有些不預期的行為。（由 Batuhan Taskaya 在 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=42725">bpo-42725</a> 中貢獻。）</p></li>
 <li><p>未繫結變數 (unbound variable)、<code class="docutils literal notranslate"><span class="pre">super()</span></code> 和其他可能會改變處理註釋之符號表 (symbol table) 的運算式，現在在 <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">comments</span></code> 下變得無效。（由 Batuhan Taskaya 在 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=42725">bpo-42725</a> 中貢獻。）</p></li>
 <li><p><a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> 型別和 <a class="reference internal" href="../library/decimal.html#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal notranslate"><span class="pre">decimal.Decimal</span></code></a> 型別的 NaN 值的雜湊值現在取決於物件的標識值 (identity)。以前即使 NaN 值彼此不相等，它們也總是被雜湊為 <code class="docutils literal notranslate"><span class="pre">0</span></code>。由於在建立包含多個 NaN 的字典和集合時出現過多的雜湊衝突 (hash collision)，可能導致潛在的二次方執行環境行為 (quadratic runtime behavior)。（由 Raymond Hettinger 在 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=43475">bpo-43475</a> 中貢獻。）</p></li>
@@ -1020,7 +1020,7 @@
 <section id="inspect">
 <h3>inspect<a class="headerlink" href="#inspect" title="Link to this heading">¶</a></h3>
 <p>當模組未定義 <code class="docutils literal notranslate"><span class="pre">__loader__</span></code> 時，回退到 <code class="docutils literal notranslate"><span class="pre">__spec__.loader</span></code> 。（由 Brett Cannon 在 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=42133">bpo-42133</a> 中貢獻。）</p>
-<p>新增 <a class="reference internal" href="../library/inspect.html#inspect.get_annotations" title="inspect.get_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a>，它可以安全地計算物件上定義的註釋。它是存取各種型別物件註釋的怪作法 (quirks) 的變通解法 (work around)，並且對其檢查的物件做出很少的假設。 <a class="reference internal" href="../library/inspect.html#inspect.get_annotations" title="inspect.get_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a> 也可以正確地取消字串化註釋 (stringized annotations)。 <a class="reference internal" href="../library/inspect.html#inspect.get_annotations" title="inspect.get_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a> 現在被認為是存取任何 Python 物件上定義的註釋字典的最佳實踐；有關使用註釋的最佳實踐的更多資訊，請參閱 <a class="reference internal" href="../howto/annotations.html#annotations-howto"><span class="std std-ref">Annotations Best Practices</span></a>。相關地，<a class="reference internal" href="../library/inspect.html#inspect.signature" title="inspect.signature"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.signature()</span></code></a>、<a class="reference internal" href="../library/inspect.html#inspect.Signature.from_callable" title="inspect.Signature.from_callable"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.Signature.from_callable()</span></code></a> 和 <code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.Signature.from_function()</span></code> 現在呼叫 <a class="reference internal" href="../library/inspect.html#inspect.get_annotations" title="inspect.get_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a> 來檢索註釋。這意味著 <a class="reference internal" href="../library/inspect.html#inspect.signature" title="inspect.signature"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.signature()</span></code></a> 和 <a class="reference internal" href="../library/inspect.html#inspect.Signature.from_callable" title="inspect.Signature.from_callable"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.Signature.from_callable()</span></code></a> 現在也可以取消字串化註釋。（由 Larry Hastings 在 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=43817">bpo-43817</a> 中貢獻。）</p>
+<p>新增 <a class="reference internal" href="../library/inspect.html#inspect.get_annotations" title="inspect.get_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a>，它可以安全地計算物件上定義的註釋。它是存取各種型別物件註釋的怪作法 (quirks) 的變通解法 (work around)，並且對其檢查的物件做出很少的假設。 <a class="reference internal" href="../library/inspect.html#inspect.get_annotations" title="inspect.get_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a> 也可以正確地取消字串化註釋 (stringized annotations)。 <a class="reference internal" href="../library/inspect.html#inspect.get_annotations" title="inspect.get_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a> 現在被認為是存取任何 Python 物件上定義的註釋字典的最佳實踐；有關使用註釋的最佳實踐的更多資訊，請參閱 <a class="reference internal" href="../howto/annotations.html#annotations-howto"><span class="std std-ref">註釋 (annotation) 最佳實踐</span></a>。相關地，<a class="reference internal" href="../library/inspect.html#inspect.signature" title="inspect.signature"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.signature()</span></code></a>、<a class="reference internal" href="../library/inspect.html#inspect.Signature.from_callable" title="inspect.Signature.from_callable"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.Signature.from_callable()</span></code></a> 和 <code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.Signature.from_function()</span></code> 現在呼叫 <a class="reference internal" href="../library/inspect.html#inspect.get_annotations" title="inspect.get_annotations"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.get_annotations()</span></code></a> 來檢索註釋。這意味著 <a class="reference internal" href="../library/inspect.html#inspect.signature" title="inspect.signature"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.signature()</span></code></a> 和 <a class="reference internal" href="../library/inspect.html#inspect.Signature.from_callable" title="inspect.Signature.from_callable"><code class="xref py py-func docutils literal notranslate"><span class="pre">inspect.Signature.from_callable()</span></code></a> 現在也可以取消字串化註釋。（由 Larry Hastings 在 <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=43817">bpo-43817</a> 中貢獻。）</p>
 </section>
 <section id="itertools">
 <h3>itertools<a class="headerlink" href="#itertools" title="Link to this heading">¶</a></h3>
@@ -1300,7 +1300,7 @@
 </pre></div>
 </div>
 </li>
-<li><p>對於 <code class="docutils literal notranslate"><span class="pre">FrameObject</span></code> 物件，<code class="docutils literal notranslate"><span class="pre">f_lasti</span></code> 成員現在表示了字碼偏移量 (wordcode offset)，而不是位元組碼字串的簡單偏移量。這意味著這個數字需要乘以 2 才能與需要位元組偏移量的 API 一起使用（例如 <a class="reference internal" href="../c-api/code.html#c.PyCode_Addr2Line" title="PyCode_Addr2Line"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyCode_Addr2Line()</span></code></a>）。還要注意，<code class="docutils literal notranslate"><span class="pre">FrameObject</span></code> 物件的 <code class="docutils literal notranslate"><span class="pre">f_lasti</span></code> 成員不被認為是穩定的：請改用 <a class="reference internal" href="../c-api/frame.html#c.PyFrame_GetLineNumber" title="PyFrame_GetLineNumber"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_GetLineNumber()</span></code></a>。</p></li>
+<li><p>對於 <code class="docutils literal notranslate"><span class="pre">FrameObject</span></code> 物件，<a class="reference internal" href="../reference/datamodel.html#frame.f_lasti" title="frame.f_lasti"><code class="xref py py-attr docutils literal notranslate"><span class="pre">f_lasti</span></code></a> 成員現在表示了字碼偏移量 (wordcode offset)，而不是位元組碼字串的簡單偏移量。這意味著這個數字需要乘以 2 才能與需要位元組偏移量的 API 一起使用（例如 <a class="reference internal" href="../c-api/code.html#c.PyCode_Addr2Line" title="PyCode_Addr2Line"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyCode_Addr2Line()</span></code></a>）。還要注意，<code class="docutils literal notranslate"><span class="pre">FrameObject</span></code> 物件的 <code class="xref py py-attr docutils literal notranslate"><span class="pre">f_lasti</span></code> 成員不被認為是穩定的：請改用 <a class="reference internal" href="../c-api/frame.html#c.PyFrame_GetLineNumber" title="PyFrame_GetLineNumber"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_GetLineNumber()</span></code></a>。</p></li>
 </ul>
 </li>
 </ul>
@@ -1643,7 +1643,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 有什麼新功能？</a> &#187;</li>
@@ -1686,7 +1686,7 @@
 <br />
     <br />
 
-    最後更新於 10月 14, 2023。
+    最後更新於 Dec 09, 2023 (07:40 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 

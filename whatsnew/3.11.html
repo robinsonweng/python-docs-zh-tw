@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python 3.11 有什麼新功能 &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 3.11 有什麼新功能 &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -106,7 +106,7 @@
 <li><a class="reference internal" href="#other-language-changes">其他語言更動</a></li>
 <li><a class="reference internal" href="#other-cpython-implementation-changes">其他 CPython 實作更動</a></li>
 <li><a class="reference internal" href="#new-modules">新增模組</a></li>
-<li><a class="reference internal" href="#improved-modules">模組改進</a><ul>
+<li><a class="reference internal" href="#improved-modules">改進的模組</a><ul>
 <li><a class="reference internal" href="#asyncio">asyncio</a></li>
 <li><a class="reference internal" href="#contextlib">contextlib</a></li>
 <li><a class="reference internal" href="#dataclasses">dataclasses</a></li>
@@ -248,7 +248,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python 有什麼新功能？</a> &#187;</li>
@@ -525,7 +525,7 @@ workarounds such code may need.
 </ul>
 <ul class="simple" id="whatsnew311-pythonsafepath">
 <li><p>新增了一個 <a class="reference internal" href="../using/cmdline.html#cmdoption-P"><code class="xref std std-option docutils literal notranslate"><span class="pre">-P</span></code></a> 命令列選項和一個 <span class="target" id="index-104"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONSAFEPATH"><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PYTHONSAFEPATH</span></code></a> 環境變數，它們禁用了當使用 <a class="reference internal" href="../using/cmdline.html#cmdoption-c"><code class="xref std std-option docutils literal notranslate"><span class="pre">-c</span></code></a> 和 <a class="reference internal" href="../using/cmdline.html#cmdoption-m"><code class="xref std std-option docutils literal notranslate"><span class="pre">-m</span></code></a> 以在運行腳本或當前目錄時自動添加到腳本目錄的 <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>。這確保只有 stdlib 和已安裝的模組會被 <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> 取用，以避免不小心或被惡意地將模組與本地（通常是使用者可寫入的）目錄中的模組重疊。 （由 Victor Stinner 在 <a class="reference external" href="https://github.com/python/cpython/issues/57684">gh-57684</a> 中貢獻。）</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code> 選項被新增到 <a class="reference internal" href="../library/string.html#formatspec"><span class="std std-ref">Format Specification Mini-Language</span></a>，它會強迫負的 0 在進位到格式精度後成為正的。更多詳情請見 <span class="target" id="index-105"></span><a class="pep reference external" href="https://peps.python.org/pep-0682/"><strong>PEP 682</strong></a>。（由 John Belmonte 於 <a class="reference external" href="https://github.com/python/cpython/issues/90153">gh-90153</a> 中貢獻。）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;z&quot;</span></code> 選項被新增到 <a class="reference internal" href="../library/string.html#formatspec"><span class="std std-ref">格式規格 (Format Specification) 迷你語言</span></a>，它會強迫負的 0 在進位到格式精度後成為正的。更多詳情請見 <span class="target" id="index-105"></span><a class="pep reference external" href="https://peps.python.org/pep-0682/"><strong>PEP 682</strong></a>。（由 John Belmonte 於 <a class="reference external" href="https://github.com/python/cpython/issues/90153">gh-90153</a> 中貢獻。）</p></li>
 <li><p><a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> 不再接受位元組。支援已在 Python 3.2 和 3.6 之間的某個時間停止，直到 Python 3.10.0 發布後才引起人們的注意。此外，由於混合使用 <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> 和 <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> 鍵時 <a class="reference internal" href="../using/cmdline.html#cmdoption-b"><code class="xref std std-option docutils literal notranslate"><span class="pre">-b</span></code></a> 和 <a class="reference internal" href="../library/sys.html#sys.path_importer_cache" title="sys.path_importer_cache"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_importer_cache</span></code></a> 會出現的交互作用，恢復這項支援會出現問題。（由 Thomas Grainger 在 <a class="reference external" href="https://github.com/python/cpython/issues/91181">gh-91181</a> 中貢獻。）</p></li>
 </ul>
 </section>
@@ -550,7 +550,7 @@ workarounds such code may need.
 </ul>
 </section>
 <section id="improved-modules">
-<span id="whatsnew311-improved-modules"></span><h2>模組改進<a class="headerlink" href="#improved-modules" title="Link to this heading">¶</a></h2>
+<span id="whatsnew311-improved-modules"></span><h2>改進的模組<a class="headerlink" href="#improved-modules" title="Link to this heading">¶</a></h2>
 <section id="asyncio">
 <span id="whatsnew311-asyncio"></span><h3>asyncio<a class="headerlink" href="#asyncio" title="Link to this heading">¶</a></h3>
 <ul class="simple">
@@ -1234,7 +1234,7 @@ Mark Shannon</p></td>
 <li><p><a class="reference internal" href="../library/importlib.resources.html#importlib.resources.path" title="importlib.resources.path"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.resources.path()</span></code></a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="../library/locale.html#locale.getdefaultlocale" title="locale.getdefaultlocale"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale.getdefaultlocale()</span></code></a> 函式已被棄用且將於 Python 3.13 中移除。請改用 <a class="reference internal" href="../library/locale.html#locale.setlocale" title="locale.setlocale"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale.setlocale()</span></code></a>、<a class="reference internal" href="../library/locale.html#locale.getpreferredencoding" title="locale.getpreferredencoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale.getpreferredencoding(False)</span></code></a> 和 <a class="reference internal" href="../library/locale.html#locale.getlocale" title="locale.getlocale"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale.getlocale()</span></code></a>。（Victor Stinner 於 <a class="reference external" href="https://github.com/python/cpython/issues/90817">gh-90817</a> 中所貢獻。）</p></li>
+<li><p><a class="reference internal" href="../library/locale.html#locale.getdefaultlocale" title="locale.getdefaultlocale"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale.getdefaultlocale()</span></code></a> 函式已被棄用且將於 Python 3.15 中移除。請改用 <a class="reference internal" href="../library/locale.html#locale.setlocale" title="locale.setlocale"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale.setlocale()</span></code></a>、<a class="reference internal" href="../library/locale.html#locale.getpreferredencoding" title="locale.getpreferredencoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale.getpreferredencoding(False)</span></code></a> 和 <a class="reference internal" href="../library/locale.html#locale.getlocale" title="locale.getlocale"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale.getlocale()</span></code></a>。（Victor Stinner 於 <a class="reference external" href="https://github.com/python/cpython/issues/90817">gh-90817</a> 中所貢獻。）</p></li>
 <li><p><a class="reference internal" href="../library/locale.html#locale.resetlocale" title="locale.resetlocale"><code class="xref py py-func docutils literal notranslate"><span class="pre">locale.resetlocale()</span></code></a> 函式已棄用並將於 Python 3.13 中移除，請改用 <code class="docutils literal notranslate"><span class="pre">locale.setlocale(locale.LC_ALL,</span> <span class="pre">&quot;&quot;)</span></code>。（由 Victor Stinner 於 <a class="reference external" href="https://github.com/python/cpython/issues/90817">gh-90817</a> 中所貢獻。）</p></li>
 <li><p>現在將對<a class="reference internal" href="../library/re.html#re-syntax"><span class="std std-ref">規則運算式</span></a>中的數值群組參照 (numerical group references) 和群組名稱套用更嚴格的規則。現在只接受 ASCII 數字序列作為數值參照，並且 <a class="reference internal" href="../library/stdtypes.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> 模式 (pattern) 的群組名稱和替換字串中只能包含 ASCII 字母、數字和底線。目前，會針對違反這些規則的語法發出棄用警告。（由 Serhiy Storchaka 在 <a class="reference external" href="https://github.com/python/cpython/issues/91760">gh-91760</a> 中貢獻。）</p></li>
 <li><p>在 <a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal notranslate"><span class="pre">re</span></code></a> 模組中，<code class="xref py py-func docutils literal notranslate"><span class="pre">re.template()</span></code> 函式和相應的 <code class="xref py py-const docutils literal notranslate"><span class="pre">re.TEMPLATE</span></code> 和 <code class="xref py py-const docutils literal notranslate"><span class="pre">re.T</span></code> 旗標被棄用，因為它們沒被記錄於文件中並且缺乏明顯的目的。它們將在 Python 3.13 中被刪除。（由 Serhiy Storchaka 和 Miro Hrončok 在 <a class="reference external" href="https://github.com/python/cpython/issues/92728">gh-92728</a> 中貢獻。）</p></li>
@@ -1596,8 +1596,8 @@ except empty tuple singleton.
 <li><p><code class="docutils literal notranslate"><span class="pre">f_localsplus</span></code>：無公開 API（重新命名為 <code class="docutils literal notranslate"><span class="pre">f_frame.localsplus</span></code>）。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">f_valuestack</span></code>：已移除。</p></li>
 </ul>
-<p>Python 幀物件的建立現為惰性的 (lazily)，一個副作用是 <code class="docutils literal notranslate"><span class="pre">f_back</span></code> 成員不能被直接存取，因為其職的計算也是惰性的，要改呼叫 <a class="reference internal" href="../c-api/frame.html#c.PyFrame_GetBack" title="PyFrame_GetBack"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_GetBack()</span></code></a>。</p>
-<p>直接存取 <code class="docutils literal notranslate"><span class="pre">f_locals</span></code> 的除錯器<em>必須</em>改為呼叫 <a class="reference internal" href="../c-api/frame.html#c.PyFrame_GetLocals" title="PyFrame_GetLocals"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_GetLocals()</span></code></a>。他們不再需要呼叫 <code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_FastToLocalsWithError()</span></code> 或 <code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_LocalsToFast()</span></code>，事實上他們不應該呼叫這些函式。框架的必要更新現在由虛擬機管理。</p>
+<p>Python 幀物件的建立現為惰性的 (lazily)，一個副作用是 <a class="reference internal" href="../reference/datamodel.html#frame.f_back" title="frame.f_back"><code class="xref py py-attr docutils literal notranslate"><span class="pre">f_back</span></code></a> 成員不能被直接存取，因為其職的計算也是惰性的，要改呼叫 <a class="reference internal" href="../c-api/frame.html#c.PyFrame_GetBack" title="PyFrame_GetBack"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_GetBack()</span></code></a>。</p>
+<p>直接存取 <a class="reference internal" href="../reference/datamodel.html#frame.f_locals" title="frame.f_locals"><code class="xref py py-attr docutils literal notranslate"><span class="pre">f_locals</span></code></a> 的除錯器<em>必須</em>改為呼叫 <a class="reference internal" href="../c-api/frame.html#c.PyFrame_GetLocals" title="PyFrame_GetLocals"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_GetLocals()</span></code></a>。他們不再需要呼叫 <code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_FastToLocalsWithError()</span></code> 或 <code class="xref c c-func docutils literal notranslate"><span class="pre">PyFrame_LocalsToFast()</span></code>，事實上他們不應該呼叫這些函式。框架的必要更新現在由虛擬機管理。</p>
 <p><code class="docutils literal notranslate"><span class="pre">PyFrame_GetCode()</span></code> 在 Python 3.8 以前的程式定義：</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#if PY_VERSION_HEX &lt; 0x030900B1</span>
 <span class="n">static</span> <span class="n">inline</span> <span class="n">PyCodeObject</span><span class="o">*</span> <span class="n">PyFrame_GetCode</span><span class="p">(</span><span class="n">PyFrameObject</span> <span class="o">*</span><span class="n">frame</span><span class="p">)</span>
@@ -1804,7 +1804,7 @@ removed.
 <li><a class="reference internal" href="#other-language-changes">其他語言更動</a></li>
 <li><a class="reference internal" href="#other-cpython-implementation-changes">其他 CPython 實作更動</a></li>
 <li><a class="reference internal" href="#new-modules">新增模組</a></li>
-<li><a class="reference internal" href="#improved-modules">模組改進</a><ul>
+<li><a class="reference internal" href="#improved-modules">改進的模組</a><ul>
 <li><a class="reference internal" href="#asyncio">asyncio</a></li>
 <li><a class="reference internal" href="#contextlib">contextlib</a></li>
 <li><a class="reference internal" href="#dataclasses">dataclasses</a></li>
@@ -1949,7 +1949,7 @@ removed.
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 有什麼新功能？</a> &#187;</li>
@@ -1992,7 +1992,7 @@ removed.
 <br />
     <br />
 
-    最後更新於 10月 14, 2023。
+    最後更新於 Dec 09, 2023 (07:40 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 

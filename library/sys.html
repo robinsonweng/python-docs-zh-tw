@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>sys --- 系統特定的參數與函式 &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sys --- 系統特定的參數與函式 &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -307,7 +307,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 標準函式庫 (Standard Library)</a> &#187;</li>
@@ -381,12 +381,7 @@ function. At a minimum, any security-sensitive hooks must be added using the
 C API <a class="reference internal" href="../c-api/sys.html#c.PySys_AddAuditHook" title="PySys_AddAuditHook"><code class="xref c c-func docutils literal notranslate"><span class="pre">PySys_AddAuditHook()</span></code></a> before initialising the runtime, and any
 modules allowing arbitrary memory modification (such as <a class="reference internal" href="ctypes.html#module-ctypes" title="ctypes: A foreign function library for Python."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ctypes</span></code></a>) should
 be completely removed or closely monitored.</p>
-<p class="audit-hook"><p>Calling <a class="reference internal" href="#sys.addaudithook" title="sys.addaudithook"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.addaudithook()</span></code></a> will itself raise an auditing event
-named <code class="docutils literal notranslate"><span class="pre">sys.addaudithook</span></code> with no arguments. If any
-existing hooks raise an exception derived from <a class="reference internal" href="exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>, the
-new hook will not be added and the exception suppressed. As a result,
-callers cannot assume that their hook has been added unless they control
-all existing hooks.</p>
+<p class="audit-hook"><p>呼叫 <a class="reference internal" href="#sys.addaudithook" title="sys.addaudithook"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.addaudithook()</span></code></a> 本身會引發一個不帶任何引數、名為 <code class="docutils literal notranslate"><span class="pre">sys.addaudithook</span></code> 的稽核事件。如果任何現有的 hook 引發從 <a class="reference internal" href="exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> 衍生的例外，則不會添加新的 hook 並抑制異常。因此，除非呼叫者控制所有已存在的 hook，他們不能假設他們的 hook 已被添加。</p>
 </p>
 <p>所有會被 CPython 所引發的事件請參考<a class="reference internal" href="audit_events.html#audit-events"><span class="std std-ref">稽核事件總表</span></a>、設計相關討論請見 <span class="target" id="index-42"></span><a class="pep reference external" href="https://peps.python.org/pep-0578/"><strong>PEP 578</strong></a>。</p>
 <div class="versionadded">
@@ -502,7 +497,10 @@ Python interpreter.  (This information is not available in any other way ---
 <span class="sig-prename descclassname"><span class="pre">sys.</span></span><span class="sig-name descname"><span class="pre">call_tracing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sys.call_tracing" title="Link to this definition">¶</a></dt>
 <dd><p>Call <code class="docutils literal notranslate"><span class="pre">func(*args)</span></code>, while tracing is enabled.  The tracing state is saved,
 and restored afterwards.  This is intended to be called from a debugger from
-a checkpoint, to recursively debug some other code.</p>
+a checkpoint, to recursively debug or profile some other code.</p>
+<p>Tracing is suspended while calling a tracing function set by
+<a class="reference internal" href="#sys.settrace" title="sys.settrace"><code class="xref py py-func docutils literal notranslate"><span class="pre">settrace()</span></code></a> or <a class="reference internal" href="#sys.setprofile" title="sys.setprofile"><code class="xref py py-func docutils literal notranslate"><span class="pre">setprofile()</span></code></a> to avoid infinite recursion.
+<code class="xref py py-func docutils literal notranslate"><span class="pre">call_tracing()</span></code> enables explicit recursion of the tracing function.</p>
 </dd></dl>
 
 <dl class="py data">
@@ -2035,11 +2033,16 @@ thread-specific, but there is no way for the profiler to know about context swit
 threads, so it does not make sense to use this in the presence of multiple threads. Also,
 its return value is not used, so it can simply return <code class="docutils literal notranslate"><span class="pre">None</span></code>.  Error in the profile
 function will cause itself unset.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>The same tracing mechanism is used for <code class="xref py py-func docutils literal notranslate"><span class="pre">setprofile()</span></code> as <a class="reference internal" href="#sys.settrace" title="sys.settrace"><code class="xref py py-func docutils literal notranslate"><span class="pre">settrace()</span></code></a>.
+To trace calls with <code class="xref py py-func docutils literal notranslate"><span class="pre">setprofile()</span></code> inside a tracing function
+(e.g. in a debugger breakpoint), see <a class="reference internal" href="#sys.call_tracing" title="sys.call_tracing"><code class="xref py py-func docutils literal notranslate"><span class="pre">call_tracing()</span></code></a>.</p>
+</div>
 <p>Profile functions should have three arguments: <em>frame</em>, <em>event</em>, and
 <em>arg</em>. <em>frame</em> is the current stack frame.  <em>event</em> is a string: <code class="docutils literal notranslate"><span class="pre">'call'</span></code>,
 <code class="docutils literal notranslate"><span class="pre">'return'</span></code>, <code class="docutils literal notranslate"><span class="pre">'c_call'</span></code>, <code class="docutils literal notranslate"><span class="pre">'c_return'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'c_exception'</span></code>. <em>arg</em> depends
 on the event type.</p>
-<p class="audit-hook">引發一個不附帶引數的<a class="reference internal" href="#auditing"><span class="std std-ref">稽核事件</span></a> <code class="docutils literal notranslate"><span class="pre">sys.setprofile</span></code>。</p>
 <p>The events have the following meaning:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">'call'</span></code></dt><dd><p>A function is called (or some other code block entered).  The
@@ -2057,6 +2060,7 @@ a built-in.  <em>arg</em> is the C function object.</p>
 <dt><code class="docutils literal notranslate"><span class="pre">'c_exception'</span></code></dt><dd><p>A C function has raised an exception.  <em>arg</em> is the C function object.</p>
 </dd>
 </dl>
+<p class="audit-hook">引發一個不附帶引數的<a class="reference internal" href="#auditing"><span class="std std-ref">稽核事件</span></a> <code class="docutils literal notranslate"><span class="pre">sys.setprofile</span></code>。</p>
 </dd></dl>
 
 <dl class="py function">
@@ -2107,11 +2111,15 @@ the event type.</p>
 local scope is entered; it should return a reference to a local trace
 function to be used for the new scope, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the scope shouldn't be
 traced.</p>
-<p>The local trace function should return a reference to itself (or to another
-function for further tracing in that scope), or <code class="docutils literal notranslate"><span class="pre">None</span></code> to turn off tracing
-in that scope.</p>
+<p>The local trace function should return a reference to itself, or to another
+function which would then be used as the local trace function for the scope.</p>
 <p>If there is any error occurred in the trace function, it will be unset, just
 like <code class="docutils literal notranslate"><span class="pre">settrace(None)</span></code> is called.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>Tracing is disabled while calling the trace function (e.g. a function set by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">settrace()</span></code>). For recursive tracing see <a class="reference internal" href="#sys.call_tracing" title="sys.call_tracing"><code class="xref py py-func docutils literal notranslate"><span class="pre">call_tracing()</span></code></a>.</p>
+</div>
 <p>The events have the following meaning:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">'call'</span></code></dt><dd><p>A function is called (or some other code block entered).  The
@@ -2124,7 +2132,8 @@ condition of a loop.  The local trace function is called; <em>arg</em> is
 <code class="file docutils literal notranslate"><span class="pre">Objects/lnotab_notes.txt</span></code> for a detailed explanation of how this
 works.
 Per-line events may be disabled for a frame by setting
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">f_trace_lines</span></code> to <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> on that <a class="reference internal" href="../reference/datamodel.html#frame-objects"><span class="std std-ref">frame</span></a>.</p>
+<a class="reference internal" href="../reference/datamodel.html#frame.f_trace_lines" title="frame.f_trace_lines"><code class="xref py py-attr docutils literal notranslate"><span class="pre">f_trace_lines</span></code></a> to <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> on that
+<a class="reference internal" href="../reference/datamodel.html#frame-objects"><span class="std std-ref">frame</span></a>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">'return'</span></code></dt><dd><p>A function (or other code block) is about to return.  The local trace
 function is called; <em>arg</em> is the value that will be returned, or <code class="docutils literal notranslate"><span class="pre">None</span></code>
@@ -2139,7 +2148,7 @@ new local trace function.</p>
 opcode details).  The local trace function is called; <em>arg</em> is
 <code class="docutils literal notranslate"><span class="pre">None</span></code>; the return value specifies the new local trace function.
 Per-opcode events are not emitted by default: they must be explicitly
-requested by setting <code class="xref py py-attr docutils literal notranslate"><span class="pre">f_trace_opcodes</span></code> to <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> on the
+requested by setting <a class="reference internal" href="../reference/datamodel.html#frame.f_trace_opcodes" title="frame.f_trace_opcodes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">f_trace_opcodes</span></code></a> to <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a> on the
 <a class="reference internal" href="../reference/datamodel.html#frame-objects"><span class="std std-ref">frame</span></a>.</p>
 </dd>
 </dl>
@@ -2164,8 +2173,8 @@ implementation platform, rather than part of the language definition, and
 thus may not be available in all Python implementations.</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">在 3.7 版的變更: </span><code class="docutils literal notranslate"><span class="pre">'opcode'</span></code> event type added; <code class="xref py py-attr docutils literal notranslate"><span class="pre">f_trace_lines</span></code> and
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">f_trace_opcodes</span></code> attributes added to frames</p>
+<p><span class="versionmodified changed">在 3.7 版的變更: </span><code class="docutils literal notranslate"><span class="pre">'opcode'</span></code> event type added; <a class="reference internal" href="../reference/datamodel.html#frame.f_trace_lines" title="frame.f_trace_lines"><code class="xref py py-attr docutils literal notranslate"><span class="pre">f_trace_lines</span></code></a> and
+<a class="reference internal" href="../reference/datamodel.html#frame.f_trace_opcodes" title="frame.f_trace_opcodes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">f_trace_opcodes</span></code></a> attributes added to frames</p>
 </div>
 </dd></dl>
 
@@ -2339,7 +2348,7 @@ write bytes to <a class="reference internal" href="#sys.stdout" title="sys.stdou
 <p>However, if you are writing a library (and do not control in which
 context its code will be executed), be aware that the standard streams
 may be replaced with file-like objects like <a class="reference internal" href="io.html#io.StringIO" title="io.StringIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">io.StringIO</span></code></a> which
-do not support the :attr:!buffer` attribute.</p>
+do not support the <code class="xref py py-attr docutils literal notranslate"><span class="pre">buffer</span></code> attribute.</p>
 </div>
 </dd></dl>
 
@@ -2395,8 +2404,8 @@ implementation.</p>
 <span class="sig-prename descclassname"><span class="pre">thread_info.</span></span><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#sys.thread_info.name" title="Link to this definition">¶</a></dt>
 <dd><p>The name of the thread implementation:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;nt&quot;</span></code>: Windows threads</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;pthread&quot;</span></code>: POSIX threads</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;nt&quot;</span></code>: Windows 執行緒</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;pthread&quot;</span></code>: POSIX 執行緒</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;pthread-stubs&quot;</span></code>: stub POSIX threads
 (on WebAssembly platforms without threading support)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;solaris&quot;</span></code>: Solaris threads</p></li>
@@ -2808,7 +2817,7 @@ means, or not at all.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 標準函式庫 (Standard Library)</a> &#187;</li>
@@ -2852,7 +2861,7 @@ means, or not at all.</p>
 <br />
     <br />
 
-    最後更新於 10月 14, 2023。
+    最後更新於 Dec 09, 2023 (07:40 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 

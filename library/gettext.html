@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>gettext --- Multilingual internationalization services &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gettext --- Multilingual internationalization services &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -197,7 +197,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 標準函式庫 (Standard Library)</a> &#187;</li>
@@ -492,7 +492,7 @@ Otherwise, return the translated message.  Overridden in derived classes.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gettext.NullTranslations.info">
 <span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gettext.NullTranslations.info" title="Link to this definition">¶</a></dt>
-<dd><p>Return the &quot;protected&quot; <code class="xref py py-attr docutils literal notranslate"><span class="pre">_info</span></code> variable, a dictionary containing
+<dd><p>Return a dictionary containing
 the metadata found in the message catalog file.</p>
 </dd></dl>
 
@@ -533,7 +533,7 @@ affects calls within this module.</p>
 </section>
 <section id="the-gnutranslations-class">
 <h3>The <a class="reference internal" href="#gettext.GNUTranslations" title="gettext.GNUTranslations"><code class="xref py py-class docutils literal notranslate"><span class="pre">GNUTranslations</span></code></a> class<a class="headerlink" href="#the-gnutranslations-class" title="Link to this heading">¶</a></h3>
-<p>The <a class="reference internal" href="#module-gettext" title="gettext: Multilingual internationalization services."><code class="xref py py-mod docutils literal notranslate"><span class="pre">gettext</span></code></a> module provides one additional class derived from
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">gettext</span></code> module provides one additional class derived from
 <a class="reference internal" href="#gettext.NullTranslations" title="gettext.NullTranslations"><code class="xref py py-class docutils literal notranslate"><span class="pre">NullTranslations</span></code></a>: <a class="reference internal" href="#gettext.GNUTranslations" title="gettext.GNUTranslations"><code class="xref py py-class docutils literal notranslate"><span class="pre">GNUTranslations</span></code></a>.  This class overrides
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">_parse()</span></code> to enable reading GNU <strong class="program">gettext</strong> format <code class="file docutils literal notranslate"><span class="pre">.mo</span></code> files
 in both big-endian and little-endian format.</p>
@@ -842,9 +842,9 @@ implementations, and valuable experience to the creation of this module:</p>
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id3" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>The default locale directory is system dependent; for example, on RedHat Linux
+<p>The default locale directory is system dependent; for example, on Red Hat Linux
 it is <code class="file docutils literal notranslate"><span class="pre">/usr/share/locale</span></code>, but on Solaris it is <code class="file docutils literal notranslate"><span class="pre">/usr/lib/locale</span></code>.
-The <a class="reference internal" href="#module-gettext" title="gettext: Multilingual internationalization services."><code class="xref py py-mod docutils literal notranslate"><span class="pre">gettext</span></code></a> module does not try to support these system dependent
+The <code class="xref py py-mod docutils literal notranslate"><span class="pre">gettext</span></code> module does not try to support these system dependent
 defaults; instead its default is <code class="file docutils literal notranslate"><em><span class="pre">sys.base_prefix</span></em><span class="pre">/share/locale</span></code> (see
 <a class="reference internal" href="sys.html#sys.base_prefix" title="sys.base_prefix"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.base_prefix</span></code></a>). For this reason, it is always best to call
 <a class="reference internal" href="#gettext.bindtextdomain" title="gettext.bindtextdomain"><code class="xref py py-func docutils literal notranslate"><span class="pre">bindtextdomain()</span></code></a> with an explicit absolute path at the start of your
@@ -983,7 +983,7 @@ application.</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 標準函式庫 (Standard Library)</a> &#187;</li>
@@ -1027,7 +1027,7 @@ application.</p>
 <br />
     <br />
 
-    最後更新於 10月 14, 2023。
+    最後更新於 Dec 09, 2023 (07:40 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 

@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python 3.7 有什麼新功能 &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 3.7 有什麼新功能 &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -109,7 +109,7 @@
 <li><a class="reference internal" href="#importlib-resources">importlib.resources</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#improved-modules">Improved Modules</a><ul>
+<li><a class="reference internal" href="#improved-modules">改進的模組</a><ul>
 <li><a class="reference internal" href="#argparse">argparse</a></li>
 <li><a class="reference internal" href="#asyncio">asyncio</a></li>
 <li><a class="reference internal" href="#binascii">binascii</a></li>
@@ -174,7 +174,7 @@
 <li><a class="reference internal" href="#zipfile">zipfile</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#c-api-changes">C API Changes</a></li>
+<li><a class="reference internal" href="#c-api-changes">C API 變更</a></li>
 <li><a class="reference internal" href="#build-changes">Build Changes</a></li>
 <li><a class="reference internal" href="#optimizations">最佳化</a></li>
 <li><a class="reference internal" href="#other-cpython-implementation-changes">Other CPython Implementation Changes</a></li>
@@ -272,7 +272,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python 有什麼新功能？</a> &#187;</li>
@@ -318,7 +318,7 @@ Python 3.7 was released on June 27, 2018.
 For full details, see the <a class="reference internal" href="changelog.html#changelog"><span class="std std-ref">changelog</span></a>.</p>
 <section id="summary-release-highlights">
 <h2>Summary -- Release Highlights<a class="headerlink" href="#summary-release-highlights" title="Link to this heading">¶</a></h2>
-<p>New syntax features:</p>
+<p>新增語法特性：</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#whatsnew37-pep563"><span class="std std-ref">PEP 563</span></a>, postponed evaluation of type annotations.</p></li>
 </ul>
@@ -366,7 +366,7 @@ part of the Python language spec.</p></li>
 <li><p><a class="reference internal" href="#whatsnew37-pep565"><span class="std std-ref">PEP 565</span></a>, improved <a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal notranslate"><span class="pre">DeprecationWarning</span></code></a>
 handling</p></li>
 </ul>
-<p>C API improvements:</p>
+<p>C API 改進：</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#whatsnew37-pep539"><span class="std std-ref">PEP 539</span></a>, new C API for thread-local storage</p></li>
 </ul>
@@ -807,7 +807,7 @@ new API.  Built-in file path loaders and zip file loaders both support this.</p>
 </section>
 </section>
 <section id="improved-modules">
-<h2>Improved Modules<a class="headerlink" href="#improved-modules" title="Link to this heading">¶</a></h2>
+<h2>改進的模組<a class="headerlink" href="#improved-modules" title="Link to this heading">¶</a></h2>
 <section id="argparse">
 <h3>argparse<a class="headerlink" href="#argparse" title="Link to this heading">¶</a></h3>
 <p>The new <a class="reference internal" href="../library/argparse.html#argparse.ArgumentParser.parse_intermixed_args" title="argparse.ArgumentParser.parse_intermixed_args"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ArgumentParser.parse_intermixed_args()</span></code></a>
@@ -1619,7 +1619,7 @@ alphabetical order.
 </section>
 </section>
 <section id="c-api-changes">
-<h2>C API Changes<a class="headerlink" href="#c-api-changes" title="Link to this heading">¶</a></h2>
+<h2>C API 變更<a class="headerlink" href="#c-api-changes" title="Link to this heading">¶</a></h2>
 <p>A new API for thread-local storage has been implemented.  See
 <a class="reference internal" href="#whatsnew37-pep539"><span class="std std-ref">PEP 539: New C API for Thread-Local Storage</span></a> for an overview and
 <a class="reference internal" href="../c-api/init.html#thread-specific-storage-api"><span class="std std-ref">Thread Specific Storage (TSS) API</span></a> for a complete reference.
@@ -1812,7 +1812,7 @@ C library implementation on most platforms.
 <ul class="simple">
 <li><p>Trace hooks may now opt out of receiving the <code class="docutils literal notranslate"><span class="pre">line</span></code> and opt into receiving
 the <code class="docutils literal notranslate"><span class="pre">opcode</span></code> events from the interpreter by setting the corresponding new
-<code class="docutils literal notranslate"><span class="pre">f_trace_lines</span></code> and <code class="docutils literal notranslate"><span class="pre">f_trace_opcodes</span></code> attributes on the
+<a class="reference internal" href="../reference/datamodel.html#frame.f_trace_lines" title="frame.f_trace_lines"><code class="xref py py-attr docutils literal notranslate"><span class="pre">f_trace_lines</span></code></a> and <a class="reference internal" href="../reference/datamodel.html#frame.f_trace_opcodes" title="frame.f_trace_opcodes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">f_trace_opcodes</span></code></a> attributes on the
 frame being traced. (Contributed by Nick Coghlan in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=31344">bpo-31344</a>.)</p></li>
 <li><p>Fixed some consistency problems with namespace package module attributes.
 Namespace module objects now have an <code class="docutils literal notranslate"><span class="pre">__file__</span></code> that is set to <code class="docutils literal notranslate"><span class="pre">None</span></code>
@@ -2011,9 +2011,9 @@ templates for <a class="reference internal" href="../library/re.html#re.sub" tit
 cause an error.</p></li>
 <li><p>Removed support of the <em>exclude</em> argument in <a class="reference internal" href="../library/tarfile.html#tarfile.TarFile.add" title="tarfile.TarFile.add"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tarfile.TarFile.add()</span></code></a>.
 It was deprecated in Python 2.7 and 3.2.  Use the <em>filter</em> argument instead.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">splitunc()</span></code> function in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">ntpath</span></code> module was deprecated in
-Python 3.1, and has now been removed.  Use the <a class="reference internal" href="../library/os.path.html#os.path.splitdrive" title="os.path.splitdrive"><code class="xref py py-func docutils literal notranslate"><span class="pre">splitdrive()</span></code></a>
-function instead.</p></li>
+<li><p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">ntpath.splitunc()</span></code> function was deprecated in
+Python 3.1, and has now been removed.  Use <a class="reference internal" href="../library/os.path.html#os.path.splitdrive" title="os.path.splitdrive"><code class="xref py py-func docutils literal notranslate"><span class="pre">splitdrive()</span></code></a>
+instead.</p></li>
 <li><p><a class="reference internal" href="../library/collections.html#collections.namedtuple" title="collections.namedtuple"><code class="xref py py-func docutils literal notranslate"><span class="pre">collections.namedtuple()</span></code></a> no longer supports the <em>verbose</em> parameter
 or <code class="docutils literal notranslate"><span class="pre">_source</span></code> attribute which showed the generated source code for the
 named tuple class.  This was part of an optimization designed to speed-up
@@ -2407,7 +2407,7 @@ documentation.
 <li><a class="reference internal" href="#importlib-resources">importlib.resources</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#improved-modules">Improved Modules</a><ul>
+<li><a class="reference internal" href="#improved-modules">改進的模組</a><ul>
 <li><a class="reference internal" href="#argparse">argparse</a></li>
 <li><a class="reference internal" href="#asyncio">asyncio</a></li>
 <li><a class="reference internal" href="#binascii">binascii</a></li>
@@ -2472,7 +2472,7 @@ documentation.
 <li><a class="reference internal" href="#zipfile">zipfile</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#c-api-changes">C API Changes</a></li>
+<li><a class="reference internal" href="#c-api-changes">C API 變更</a></li>
 <li><a class="reference internal" href="#build-changes">Build Changes</a></li>
 <li><a class="reference internal" href="#optimizations">最佳化</a></li>
 <li><a class="reference internal" href="#other-cpython-implementation-changes">Other CPython Implementation Changes</a></li>
@@ -2573,7 +2573,7 @@ documentation.
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 有什麼新功能？</a> &#187;</li>
@@ -2616,7 +2616,7 @@ documentation.
 <br />
     <br />
 
-    最後更新於 10月 14, 2023。
+    最後更新於 Dec 09, 2023 (07:40 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 

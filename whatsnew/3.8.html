@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python 3.8 有什麼新功能 &#8212; Python 3.12.0 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python 3.8 有什麼新功能 &#8212; Python 3.12.1 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=aa5eeaf2" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=b20cc3f5" />
     
-    <script src="../_static/documentation_options.js?v=20e7bb27"></script>
+    <script src="../_static/documentation_options.js?v=3221873d"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/translations.js?v=d9a6981e"></script>
@@ -19,7 +19,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="search" type="application/opensearchdescription+xml"
-          title="在 Python 3.12.0 說明文件 中搜尋"
+          title="在 Python 3.12.1 說明文件 中搜尋"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="關於這些文件" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
@@ -100,8 +100,8 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#other-language-changes">其他語言更動</a></li>
-<li><a class="reference internal" href="#new-modules">New Modules</a></li>
-<li><a class="reference internal" href="#improved-modules">Improved Modules</a><ul>
+<li><a class="reference internal" href="#new-modules">新增模組</a></li>
+<li><a class="reference internal" href="#improved-modules">改進的模組</a><ul>
 <li><a class="reference internal" href="#ast">ast</a></li>
 <li><a class="reference internal" href="#asyncio">asyncio</a></li>
 <li><a class="reference internal" href="#builtins">builtins（內建）</a></li>
@@ -223,7 +223,7 @@
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python 有什麼新功能？</a> &#187;</li>
@@ -687,7 +687,7 @@ not <em>None</em>, this callable will have priority over the object's
 </ul>
 </section>
 <section id="new-modules">
-<h2>New Modules<a class="headerlink" href="#new-modules" title="Link to this heading">¶</a></h2>
+<h2>新增模組<a class="headerlink" href="#new-modules" title="Link to this heading">¶</a></h2>
 <ul>
 <li><p>The new <a class="reference internal" href="../library/importlib.metadata.html#module-importlib.metadata" title="importlib.metadata: Accessing package metadata"><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib.metadata</span></code></a> module provides (provisional) support for
 reading metadata from third-party packages.  For example, it can extract an
@@ -713,7 +713,7 @@ installed package's version number, list of entry points, and more:</p>
 </ul>
 </section>
 <section id="improved-modules">
-<h2>Improved Modules<a class="headerlink" href="#improved-modules" title="Link to this heading">¶</a></h2>
+<h2>改進的模組<a class="headerlink" href="#improved-modules" title="Link to this heading">¶</a></h2>
 <section id="ast">
 <h3>ast<a class="headerlink" href="#ast" title="Link to this heading">¶</a></h3>
 <p>AST nodes now have <code class="docutils literal notranslate"><span class="pre">end_lineno</span></code> and <code class="docutils literal notranslate"><span class="pre">end_col_offset</span></code> attributes,
@@ -1623,7 +1623,7 @@ They will be removed in Python 3.9.
 <a class="reference internal" href="../library/asyncio-eventloop.html#asyncio.loop.set_default_executor" title="asyncio.loop.set_default_executor"><code class="xref py py-meth docutils literal notranslate"><span class="pre">loop.set_default_executor()</span></code></a> is
 deprecated and will be prohibited in Python 3.9.
 (Contributed by Elvis Pranskevichus in <a class="reference external" href="https://bugs.python.org/issue?&#64;action=redirect&amp;bpo=34075">bpo-34075</a>.)</p></li>
-<li><p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code> methods of <a class="reference internal" href="../library/xml.dom.pulldom.html#xml.dom.pulldom.DOMEventStream" title="xml.dom.pulldom.DOMEventStream"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml.dom.pulldom.DOMEventStream</span></code></a>,
+<li><p>The <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> methods of <a class="reference internal" href="../library/xml.dom.pulldom.html#xml.dom.pulldom.DOMEventStream" title="xml.dom.pulldom.DOMEventStream"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml.dom.pulldom.DOMEventStream</span></code></a>,
 <a class="reference internal" href="../library/wsgiref.html#wsgiref.util.FileWrapper" title="wsgiref.util.FileWrapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">wsgiref.util.FileWrapper</span></code></a> and <a class="reference internal" href="../library/fileinput.html#fileinput.FileInput" title="fileinput.FileInput"><code class="xref py py-class docutils literal notranslate"><span class="pre">fileinput.FileInput</span></code></a> have been
 deprecated.</p>
 <p>Implementations of these methods have been ignoring their <em>index</em> parameter,
@@ -2178,8 +2178,8 @@ to 3.8 by Achraf Merzouki.)</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#other-language-changes">其他語言更動</a></li>
-<li><a class="reference internal" href="#new-modules">New Modules</a></li>
-<li><a class="reference internal" href="#improved-modules">Improved Modules</a><ul>
+<li><a class="reference internal" href="#new-modules">新增模組</a></li>
+<li><a class="reference internal" href="#improved-modules">改進的模組</a><ul>
 <li><a class="reference internal" href="#ast">ast</a></li>
 <li><a class="reference internal" href="#asyncio">asyncio</a></li>
 <li><a class="reference internal" href="#builtins">builtins（內建）</a></li>
@@ -2304,7 +2304,7 @@ to 3.8 by Achraf Merzouki.)</p>
               
           </li>
     <li id="cpython-language-and-version">
-      <a href="../index.html">3.12.0 Documentation</a> &#187;
+      <a href="../index.html">3.12.1 Documentation</a> &#187;
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >Python 有什麼新功能？</a> &#187;</li>
@@ -2347,7 +2347,7 @@ to 3.8 by Achraf Merzouki.)</p>
 <br />
     <br />
 
-    最後更新於 10月 14, 2023。
+    最後更新於 Dec 09, 2023 (07:40 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 
