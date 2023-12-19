@@ -1886,7 +1886,7 @@ Python).  For example:</p>
 </div>
 <p>For more information on the <code class="docutils literal notranslate"><span class="pre">str</span></code> class and its methods, see
 <a class="reference internal" href="#textseq"><span class="std std-ref">Text Sequence Type --- str</span></a> and the <a class="reference internal" href="#string-methods"><span class="std std-ref">String Methods</span></a> section below.  To output
-formatted strings, see the <a class="reference internal" href="../reference/lexical_analysis.html#f-strings"><span class="std std-ref">Formatted string literals</span></a> and <a class="reference internal" href="string.html#formatstrings"><span class="std std-ref">格式化文字語法</span></a>
+formatted strings, see the <a class="reference internal" href="../reference/lexical_analysis.html#f-strings"><span class="std std-ref">f-strings</span></a> and <a class="reference internal" href="string.html#formatstrings"><span class="std std-ref">格式化文字語法</span></a>
 sections.  In addition, see the <a class="reference internal" href="text.html#stringservices"><span class="std std-ref">文本處理 (Text Processing) 服務</span></a> section.</p>
 </dd></dl>
 
@@ -5800,9 +5800,10 @@ attribute, you need to explicitly set it on the underlying function object:</p>
 executable Python code such as a function body. They differ from function
 objects because they don't contain a reference to their global execution
 environment.  Code objects are returned by the built-in <a class="reference internal" href="functions.html#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> function
-and can be extracted from function objects through their <code class="xref py py-attr docutils literal notranslate"><span class="pre">__code__</span></code>
-attribute. See also the <a class="reference internal" href="code.html#module-code" title="code: Facilities to implement read-eval-print loops."><code class="xref py py-mod docutils literal notranslate"><span class="pre">code</span></code></a> module.</p>
-<p>存取 <code class="docutils literal notranslate"><span class="pre">__code__</span></code> 會引發一個附帶引數 <code class="docutils literal notranslate"><span class="pre">obj</span></code> 與 <code class="docutils literal notranslate"><span class="pre">&quot;__code__&quot;</span></code> 的<a class="reference internal" href="sys.html#auditing"><span class="std std-ref">稽核事件</span></a> <code class="docutils literal notranslate"><span class="pre">object.__getattr__</span></code>。</p>
+and can be extracted from function objects through their
+<a class="reference internal" href="../reference/datamodel.html#function.__code__" title="function.__code__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__code__</span></code></a> attribute. See also the <a class="reference internal" href="code.html#module-code" title="code: Facilities to implement read-eval-print loops."><code class="xref py py-mod docutils literal notranslate"><span class="pre">code</span></code></a> module.</p>
+<p>Accessing <a class="reference internal" href="../reference/datamodel.html#function.__code__" title="function.__code__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__code__</span></code></a> raises an <a class="reference internal" href="sys.html#auditing"><span class="std std-ref">auditing event</span></a>
+<code class="docutils literal notranslate"><span class="pre">object.__getattr__</span></code> with arguments <code class="docutils literal notranslate"><span class="pre">obj</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;__code__&quot;</span></code>.</p>
 <p id="index-64">A code object can be executed or evaluated by passing it (instead of a source
 string) to the <a class="reference internal" href="functions.html#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> or <a class="reference internal" href="functions.html#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>  built-in functions.</p>
 <p>更多資訊請見 <a class="reference internal" href="../reference/datamodel.html#types"><span class="std std-ref">標準型別階層</span></a>。</p>
@@ -5840,8 +5841,9 @@ information.  There is exactly one <code class="docutils literal notranslate"><s
 </section>
 <section id="internal-objects">
 <span id="typesinternal"></span><h3>Internal Objects<a class="headerlink" href="#internal-objects" title="Link to this heading">¶</a></h3>
-<p>See <a class="reference internal" href="../reference/datamodel.html#types"><span class="std std-ref">標準型別階層</span></a> for this information.  It describes stack frame objects,
-traceback objects, and slice objects.</p>
+<p>See <a class="reference internal" href="../reference/datamodel.html#types"><span class="std std-ref">標準型別階層</span></a> for this information.  It describes
+<a class="reference internal" href="../reference/datamodel.html#frame-objects"><span class="std std-ref">stack frame objects</span></a>,
+<a class="reference internal" href="../reference/datamodel.html#traceback-objects"><span class="std std-ref">traceback objects</span></a>, and slice objects.</p>
 </section>
 </section>
 <section id="special-attributes">
@@ -6547,7 +6549,7 @@ element is the tuple to be formatted.</p>
 <br />
     <br />
 
-    最後更新於 Dec 09, 2023 (07:40 UTC)。
+    最後更新於 Dec 19, 2023 (02:26 UTC)。
     <a href="/bugs.html">Found a bug</a>?
     <br />
 
